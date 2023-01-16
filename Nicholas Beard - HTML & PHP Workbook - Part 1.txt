@@ -1,0 +1,36 @@
+﻿Login.php
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+
+$expected_email = "JNex@Alphateam1.org";
+$expected_pass = "alphateamtechhead";
+
+
+$email = $_POST["email"];
+$password = $_POST["password"];
+
+
+if ($expected_email == $email) + ($expected_pass == $password) {
+        goodLogin($email)
+} else { 
+        badLogin($email)
+}
+
+
+function goodLogin($email) {
+        error_log("Login accepted " , $email, 0);
+        header("Location: home.php");
+        exit();
+}
+
+
+function badLogin($email) {
+        error_log("Login not accepted " , $email, 0);
+        header("Location: index.php");
+        exit();
+}
+
+
+?>
